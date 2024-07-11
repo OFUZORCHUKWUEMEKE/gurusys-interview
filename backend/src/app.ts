@@ -19,7 +19,7 @@ app.use('/users', userRoutes);
 app.use('/blog',blogRoutes)
 app.use(errorHandler);
 
-mongoose.connect("mongodb+srv://ofuzor:ofuzor2018@cluster0.qjl8f.mongodb.net/gurusystem?retryWrites=true&w=majority" || '').then(() => {
+mongoose.connect(process.env.MONGO_URL || '').then(() => {
     console.log('Connected to MongoDB');
 }).catch(err => {
     console.error('Error connecting to MongoDB', err);
